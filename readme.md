@@ -10,6 +10,8 @@ open a cmd window in the folder and run `composer install`.
 
 Setup your .env, use redis for cache and session for better preformance.
 
+run `vendor\\bin\\homestead make` if you on windows or `php vendor/bin/homestead make` if your on UNIX
+
 Simply `vagrant up` and import the database from the backup included inside the .mysqlbackup.
 
 For the admin panel visit `eliteshop.test/admin`.
