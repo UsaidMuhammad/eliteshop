@@ -63,5 +63,6 @@ class Kernel extends HttpKernel
         'IsAdminAlreadyAvailable' => \App\Http\Middleware\IsAdminAlreadyAvailable::class,
         'IsUserLoggedIn' => \App\Http\Middleware\IsUserLoggedIn::class,
         'MenProductsChecker' => \App\Http\Middleware\MenProductsChecker::class,
+        'WomenProductsChecker' => \App\Http\Middleware\WomenProductsChecker::class,
     ];
 }

@@ -23,6 +23,8 @@ CREATE TABLE `admin` (
   PRIMARY KEY (`AdminID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+INSERT INTO `admin` (`AdminID`, `FirstName`, `LastName`, `Cell`, `Email`, `Username`, `Password`, `Status`, `DateAdded`, `DateModified`) VALUES
+(2,	'Usaid',	'Raees',	'03472568223',	'ss4_usaid@hotmail.com',	'admin',	'$2y$10$jfhNz5thEKdRcdN2HuQGOuNIvWV5nJcM57QNll1d/o7JFHyFmQR9G',	1,	'2017-12-20 13:20:17',	NULL);
 
 DROP TABLE IF EXISTS `men`;
 CREATE TABLE `men` (
@@ -35,9 +37,7 @@ CREATE TABLE `men` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `men` (`CategoryID`, `CategoryName`, `Status`, `DateAdded`, `DateModified`) VALUES
-(4,	'Jeans',	1,	'2018-01-08 13:44:57',	'2018-01-08 13:44:57'),
 (5,	'Shorts',	1,	'2018-01-08 13:45:04',	'2018-01-08 13:45:04'),
-(6,	'Socks',	1,	'2018-01-10 05:14:03',	'2018-01-10 05:14:03'),
 (7,	'Shirts',	1,	'2018-01-10 05:14:06',	'2018-01-10 05:14:06'),
 (8,	'Ties',	1,	'2018-01-10 05:14:08',	'2018-01-10 05:14:08'),
 (9,	'Shoes',	1,	'2018-01-10 05:14:15',	'2018-01-10 05:14:15'),
@@ -58,10 +58,7 @@ CREATE TABLE `men_products` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `men_products` (`ProductID`, `CategoryID`, `ProductName`, `ProductDescription`, `ProductImage`, `ProductPrice`, `Status`, `DateAdded`, `DateModified`) VALUES
-(7,	8,	'TEsting',	'Testing',	'7_YY4Cu.jpg',	'8686868',	1,	'2018-01-16 10:07:54',	'2018-01-16 10:07:54'),
-(8,	4,	'sadasd',	'Edintgasdasdsad',	'8_uqGiF.jpg',	'1000000000000',	1,	'2018-01-16 10:09:30',	'2018-01-16 10:54:07'),
-(9,	4,	'TEsting',	'teteetet',	'9_FBEcz.jpg',	'500',	1,	'2018-01-16 10:13:37',	'2018-01-16 10:13:37'),
-(10,	10,	'necktie',	'alkjsdlaskjdlaskjd',	'10_WxmS1.jpg',	'555555555',	1,	'2018-01-16 10:14:39',	'2018-01-16 10:14:39');
+(7,	8,	'TEsting',	'Testing',	'7_YY4Cu.jpg',	'8686868',	1,	'2018-01-16 10:07:54',	'2018-01-16 10:07:54');
 
 SET NAMES utf8mb4;
 
@@ -79,6 +76,11 @@ CREATE TABLE `users` (
   PRIMARY KEY (`UserID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
+INSERT INTO `users` (`UserID`, `Name`, `Email`, `Password`, `Address`, `Cell`, `Status`, `DateAdded`, `DateModified`) VALUES
+(3,	'ahmad',	'ahmad@hotmail.com',	'$2y$10$O/t4FFhwuTFjo4gbypM2wuILQ39LmogISMQ6SspoGrliIQImibxzu',	'sdasdasdasdasdasd',	'03472568223',	0,	'2018-01-03 10:52:28',	'2018-01-10 09:31:30'),
+(5,	'ali',	'ali@hotmail.com',	'$2y$10$5myIU9C0k7/fYOzzpR2zg.8Sg7aDH6M8Lu/FznR4hkDCR4bAmVNaK',	'Ali ali ali ali',	'123456789',	1,	'2018-01-03 13:39:53',	'2018-01-10 09:31:48'),
+(7,	'Usaid Raees',	'ss4_usaid@hotmail.com',	'$2y$10$jBtD9DRG7KOhDKpNspQdbep9u2n6XyibEZKOfVaqhuwYKR7W0gdSW',	'karachi pakistan',	'85692347',	1,	'2018-01-03 13:42:43',	NULL),
+(8,	'wali',	'wali@hotmail.com',	'$2y$10$MnAQI8mDEIwszh8/KcNM6uKX0jPEec3lLuAR6ZKrIIhueRjXmWKau',	'karachi',	'236574189',	1,	'2018-01-03 13:45:59',	NULL);
 
 DROP TABLE IF EXISTS `women`;
 CREATE TABLE `women` (
@@ -90,5 +92,28 @@ CREATE TABLE `women` (
   PRIMARY KEY (`CategoryID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+INSERT INTO `women` (`CategoryID`, `CategoryName`, `Status`, `DateAdded`, `DateModified`) VALUES
+(4,	'Betls',	1,	'2018-01-10 10:50:06',	'2018-01-10 10:50:06'),
+(5,	'Heels',	1,	'2018-01-10 10:50:09',	'2018-01-10 10:50:09'),
+(6,	'Shoes',	1,	'2018-01-10 10:50:12',	'2018-01-10 10:50:12'),
+(7,	'Shirts',	1,	'2018-01-10 10:50:16',	'2018-01-10 10:50:16'),
+(8,	'Jeans',	1,	'2018-01-10 10:50:36',	'2018-01-10 10:50:36'),
+(9,	'Skirts',	1,	'2018-01-10 10:50:37',	'2018-01-10 10:50:37'),
+(10,	'Dress',	1,	'2018-01-10 10:50:38',	'2018-01-10 10:50:38');
 
--- 2018-01-16 11:00:52
+DROP TABLE IF EXISTS `women_products`;
+CREATE TABLE `women_products` (
+  `ProductID` int(11) NOT NULL AUTO_INCREMENT,
+  `CategoryID` int(11) NOT NULL,
+  `ProductName` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `ProductDescription` text COLLATE utf8_unicode_ci,
+  `ProductImage` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `ProductPrice` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `Status` tinyint(1) NOT NULL,
+  `DateAdded` datetime NOT NULL,
+  `DateModified` datetime NOT NULL,
+  PRIMARY KEY (`ProductID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+-- 2018-01-17 09:48:53

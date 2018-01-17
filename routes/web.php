@@ -82,12 +82,12 @@ Route::middleware(['IsAdminLoggedIn'])->group(function () {
     Route::post("admin/men/cateogry/delete","Admin\MenController@delete");
     //Men Products
     Route::middleware(['MenProductsChecker'])->group(function () {
-        Route::get("admin/men/{CategoryID}/products/list","Admin\MenProducts@index")->where(['CategoryID'=>"[0-9]+"]);;
-        Route::get("admin/men/{CategoryID}/products/add","Admin\MenProducts@add")->where(['CategoryID'=>"[0-9]+"]);;
-        Route::post("admin/men/{CategoryID}/products/add","Admin\MenProducts@create")->where(['CategoryID'=>"[0-9]+"]);;
+        Route::get("admin/men/{CategoryID}/products/list","Admin\MenProducts@index")->where(['CategoryID'=>"[0-9]+"]);
+        Route::get("admin/men/{CategoryID}/products/add","Admin\MenProducts@add")->where(['CategoryID'=>"[0-9]+"]);
+        Route::post("admin/men/{CategoryID}/products/add","Admin\MenProducts@create")->where(['CategoryID'=>"[0-9]+"]);
         Route::get("admin/men/{CategoryID}/products/{ProductID}/edit","Admin\MenProducts@edit")->where(['ProductID'=>"[0-9]+", 'CategoryID'=>"[0-9]+"]);
         Route::post("admin/men/{CategoryID}/products/{ProductID}/edit","Admin\MenProducts@update")->where(['ProductID'=>"[0-9]+",'CategoryID'=>"[0-9]+"]);
-        Route::post("admin/men/{CategoryID}/products/delete","Admin\MenProducts@delete")->where(['CategoryID'=>"[0-9]+"]);;
+        Route::post("admin/men/{CategoryID}/products/delete","Admin\MenProducts@delete")->where(['CategoryID'=>"[0-9]+"]);
     });
 
 
@@ -98,6 +98,15 @@ Route::middleware(['IsAdminLoggedIn'])->group(function () {
     Route::get("admin/women/category/{CategoryID}/edit","Admin\WomenController@edit")->where(['CategoryID'=>"[0-9]+"]);
     Route::post("admin/women/category/{CategoryID}/edit","Admin\WomenController@update")->where(['CategoryID'=>"[0-9]+"]);
     Route::post("admin/women/cateogry/delete","Admin\WomenController@delete");
+    //Women Products
+    Route::middleware(['WomenProductsChecker'])->group(function () {
+        Route::get("admin/women/{CategoryID}/products/list","Admin\WomenProducts@index")->where(['CategoryID'=>"[0-9]+"]);
+        Route::get("admin/women/{CategoryID}/products/add","Admin\WomenProducts@add")->where(['CategoryID'=>"[0-9]+"]);
+        Route::post("admin/women/{CategoryID}/products/add","Admin\WomenProducts@create")->where(['CategoryID'=>"[0-9]+"]);
+        Route::get("admin/women/{CategoryID}/products/{ProductID}/edit","Admin\WomenProducts@edit")->where(['ProductID'=>"[0-9]+", 'CategoryID'=>"[0-9]+"]);
+        Route::post("admin/women/{CategoryID}/products/{ProductID}/edit","Admin\WomenProducts@update")->where(['ProductID'=>"[0-9]+",'CategoryID'=>"[0-9]+"]);
+        Route::post("admin/women/{CategoryID}/products/delete","Admin\WomenProducts@delete")->where(['CategoryID'=>"[0-9]+"]);
+    });
 
 });
 
