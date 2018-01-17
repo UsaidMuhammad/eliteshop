@@ -107,14 +107,19 @@ class MenController extends Controller
 
     public function delete()
     {
+        foreach ( \Request::get('IDs') as $id) {
+            $men_products = App\MenProducts::where('CategoryID', $id)->get();;
+           foreach ($men_products as $product) {
+                \File::delete(public_path('assets/uploads/products/').$product->ProductImage);
+                \File::delete(public_path('assets/uploads/products_thumb/').$product->ProductImage);
+           }
+        }   
 
-
-
-        \DB::table('men')
+        \DB::table('men_products')
                 ->whereIn('CategoryID', \Request::get('IDs'))
                 ->delete();
 
-        \DB::table('men_products')
+        \DB::table('men')
                 ->whereIn('CategoryID', \Request::get('IDs'))
                 ->delete();
 

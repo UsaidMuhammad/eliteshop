@@ -51,7 +51,7 @@
       </ol>
     </section>
 
-    {{Form::open(["url"=>"/admin/men/".$CategoryID."/product/delete/"])}}
+    {{Form::open(["url"=>"/admin/men/".$CategoryID."/products/delete/"])}}
     <!-- Main content -->
     <section class="content">
       <div class="row">
@@ -69,7 +69,7 @@
                 <tr>
                   <th><input type="checkbox" name="checkbox" id="check"></th>
                   <th>ProductID</th>
-                  <th>CategoruID</th>
+                  <th>CategoryID</th>
                   <th>Name</th>
                   <th>Description</th>
                   <th>Status</th>
@@ -101,7 +101,7 @@
                 <tr>
                   <th>Checks</th>
                   <th>ProductID</th>
-                  <th>CategoruID</th>
+                  <th>CategoryID</th>
                   <th>Name</th>
                   <th>Description</th>
                   <th>Status</th>

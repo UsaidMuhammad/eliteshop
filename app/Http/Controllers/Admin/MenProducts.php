@@ -165,6 +165,12 @@ class MenProducts extends Controller
 
     public function delete($catID)
     {
+        foreach ( \Request::get('IDs') as $id) {
+            $men_products = App\MenProducts::where('ProductID', $id)->first();
+            \File::delete(public_path('assets/uploads/products/').$men_products['ProductImage']);
+            \File::delete(public_path('assets/uploads/products_thumb/').$men_products['ProductImage']);
+        } 
+
         \DB::table('men_products')
                 ->whereIn('ProductID', \Request::get('IDs'))
                 ->delete();
