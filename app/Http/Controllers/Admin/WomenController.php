@@ -12,7 +12,7 @@ class WomenController extends Controller
     public function index()
     {
         $data['women']= \Cache::remember('womenGet', 24*60, function () {
-            App\Women::get();
+            return App\Women::get();
         });
         $data['type'] = "Women Categories";  
         return view("admin.women.womenindex", $data);
@@ -101,7 +101,7 @@ class WomenController extends Controller
             $user->save();
 
             \Cache::forget('womenGet');
-            return redirect("admin\women\category\list");
+            return redirect("admin/women/category/list");
         }
     }
 
