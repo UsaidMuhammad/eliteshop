@@ -110,7 +110,6 @@ class MenProducts extends Controller
             ],
             "valid" => [
                 "ProductName" => "required",
-                "ProductImage" => "required|image",
                 "ProductPrice" => "required|numeric",
             ],
             "validName" => [
