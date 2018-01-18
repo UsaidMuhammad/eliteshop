@@ -71,7 +71,6 @@
                   <th>ProductID</th>
                   <th>CategoryID</th>
                   <th>Name</th>
-                  <th>Description</th>
                   <th>Status</th>
                   <th>DateAdded</th>
                   <th>DateModified</th>
@@ -86,7 +85,6 @@
                         <td>{{ $item->ProductID }}</td>
                         <td>{{ $item->CategoryID }}</td>
                         <td>{{ $item->ProductName }}</td>
-                        <td>{{ $item->ProductDescription }}</td>
                         <td>{{ $item->Status }}</td>
                         <td>{{ $item->DateAdded }}</td>
                         <td>{{ $item->DateModified }}</td>
@@ -103,7 +101,6 @@
                   <th>ProductID</th>
                   <th>CategoryID</th>
                   <th>Name</th>
-                  <th>Description</th>
                   <th>Status</th>
                   <th>DateAdded</th>
                   <th>DateModified</th>
@@ -169,14 +166,17 @@
     });
 
   $(function () {
-    $('#example1').DataTable()
-    $('#example2').DataTable({
+    $('#example1').DataTable({
       'paging'      : true,
       'lengthChange': false,
       'searching'   : false,
       'ordering'    : true,
       'info'        : true,
-      'autoWidth'   : false
+      'autoWidth'   : false,
+      "columnDefs": [ {
+        "targets": [0],
+        "orderable": false
+        }]
     })
   })
 </script>

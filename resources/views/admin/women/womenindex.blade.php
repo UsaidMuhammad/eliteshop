@@ -164,14 +164,17 @@
     });
 
   $(function () {
-    $('#example1').DataTable()
-    $('#example2').DataTable({
+    $('#example1').DataTable({
       'paging'      : true,
       'lengthChange': false,
       'searching'   : false,
       'ordering'    : true,
       'info'        : true,
-      'autoWidth'   : false
+      'autoWidth'   : false,
+      "columnDefs": [ {
+        "targets": [0],
+        "orderable": false
+        }]
     })
   })
 </script>
