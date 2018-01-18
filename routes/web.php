@@ -22,8 +22,10 @@ Route::middleware(['DoesUserExsist'])->group(function () {
     //mens
     //Route::get('/mens', 'BasicWebController@mens');
     Route::get('/mens/{category}', 'BasicWebController@mensCategory');
+    Route::get('/mens/{category}/getJSON', 'BasicWebController@mensGetJSON');
     //womens
     //Route::get('/womens', 'BasicWebController@womens');
+    Route::get('/womens/{category}/getJSON', 'BasicWebController@womensGetJSON');
     Route::get('/womens/{category}', 'BasicWebController@womensCategory');
 
     Route::middleware(['IsUserLoggedIn'])->group(function () {
@@ -44,9 +46,8 @@ Route::middleware(['IsUserAlreadyAvailable'])->group(function () {
     //users login
     Route::post("/users/login","Users\UsersController@logInPost");
     Route::get("/users/login","Users\UsersController@logInGet");
+    Route::get("/users/logout","Users\UsersController@logout");
 });
-
-Route::get("/users/logout","Users\UsersController@logout");
 
 Route::middleware(['IsAdminAlreadyAvailable'])->group(function () {
     //Admin Log in
