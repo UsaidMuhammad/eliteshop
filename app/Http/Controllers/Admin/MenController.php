@@ -11,7 +11,7 @@ class MenController extends Controller
     //returns men index page with data
     public function index()
     {
-        $data['men']= \Cache::remember('menGet', 24*60, function () {
+        $data['men']= \Cache::remember('menGetAdmin', 24*60, function () {
             return App\Men::get();
         });
         $data['type'] = "Men Categories";
@@ -101,6 +101,7 @@ class MenController extends Controller
             $user->save();
 
             \Cache::forget('menGet');
+            \Cache::forget('menGetAdmin');
             return redirect("admin\men\category\list");
         }
     }
