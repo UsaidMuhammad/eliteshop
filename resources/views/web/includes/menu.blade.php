@@ -36,7 +36,7 @@
 										</div>-->
 										<?php
 										$men = \Cache::remember('menGet', 24*60, function () {
-											return \DB::table('men')->get();
+											return \DB::table('men')->where("Status",1)->get();
 										});
 										?>
 										<div class="col-sm-3 multi-gd-img">
@@ -66,7 +66,7 @@
 									<div class="agile_inner_drop_nav_info">
 											<?php
 											$women = \Cache::remember('womenGet', 24*60, function () {
-												return \DB::table('women')->get();
+												return \DB::table('women')->where("Status",1)->get();
 											});
 											?>
 											<div class="col-sm-3 multi-gd-img">

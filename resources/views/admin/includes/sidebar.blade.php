@@ -22,7 +22,7 @@
           <ul class="treeview-menu">
             <?php 
             $men = \Cache::remember('menGet', 24*60, function () {
-              return \DB::table('men')->get();
+              return \DB::table('men')->where("Status",1)->get();
             });
             ?>
             @for ($i = 1; $i <=count($men); $i++)
@@ -42,7 +42,7 @@
             <ul class="treeview-menu">
               <?php 
               $women = \Cache::remember('womenGet', 24*60, function () {
-                return \DB::table('women')->get();
+                return \DB::table('women')->where("Status",1)->get();
               });
               ?>
               @for ($i = 1; $i <=count($men); $i++)
