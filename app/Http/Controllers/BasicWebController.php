@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App;
 
 class BasicWebController extends Controller
 {
@@ -66,7 +67,7 @@ class BasicWebController extends Controller
     public function mensCategory($category)
     {
         $men = \Cache::remember('menGet', 24*60, function () {
-            return \DB::table('men')->get();
+            return \DB::table('men')->where("Status",1)->get();
         });
 
         $dbHasValue = false;
@@ -102,10 +103,23 @@ class BasicWebController extends Controller
         return view("web.womens", $data);
     }
 
+    public function mensGetJSON($category)
+    {
+        $men =  App\Men::where("CategoryName",$category)->where('Status',1)->get();
+        if (count($men)==0) {
+            return response()->json(array('msg'=> "Cannot process request"), 404);
+        }
+        $products = App\MenProducts::where('CategoryID',$men[0]->CategoryID)->where('Status',1)->get();
+    
+        return response()->json($products, 200);
+    }
+    
+
+
     public function womensCategory($category)
     {
         $women = \Cache::remember('womenGet', 24*60, function () {
-            return \DB::table('women')->get();
+            return \DB::table('women')->where("Status",1)->get();
         });
 
         $dbHasValue = false;
@@ -127,6 +141,17 @@ class BasicWebController extends Controller
             ]
         ];
     
-        return view("web.mens", $data);
+        return view("web.womens", $data);
+    }
+
+    public function womensGetJSON($category)
+    {
+        $women =  App\Women::where("CategoryName",$category)->where('Status',1)->get();
+        if (count($women)==0) {
+            return response()->json(array('msg'=> "Cannot process request"), 404);
+        }
+        $products = App\WomenProducts::where('CategoryID',$women[0]->CategoryID)->where('Status',1)->get();
+    
+        return response()->json($products, 200);
     }
 }
