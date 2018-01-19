@@ -177,4 +177,9 @@ class BasicWebController extends Controller
     
         return response()->json($products, 200);
     }
+
+    public function cartindex()
+    {
+        return view('web.cart');
+    }
 }
