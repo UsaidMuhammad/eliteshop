@@ -158,7 +158,6 @@
 			// ajax load products
 			$('#country1').ready(function () {
 				LoadEverything($('#country1').val());
-				console.log($('#country1').val());
 			});
 
 			$('#country1').change(function () {
@@ -218,13 +217,13 @@
 						$products += '<img src=\'{{url("/assets/uploads/products_thumb")}}/'+data[i].ProductImage+'\' alt="" class="pro-image-back">';
 						$products += '<div class="men-cart-pro">';
 						$products += '<div class="inner-men-cart-pro">';
-						$products += '<a href=\'{{url("/item")}}/'+data[i].ProductName+'\' class="link-product-add-cart">Quick View</a>';
+						$products += '<a href=\'{{url("/item")}}/'+data[i].ProductID+'\' class="link-product-add-cart">Quick View</a>';
 						$products += "</div>";
 						$products += '</div>';
 						$products += "</div>";
 						$products += '<div class="item-info-product ">';
 						$products += '<h4>';
-						$products += '<a href=\'{{url("/item")}}/'+data[i].ProductName+'\'>'+data[i].ProductName+'</a>';
+						$products += '<a href=\'{{url("/item")}}/'+data[i].ProductID+'\'>'+data[i].ProductName+'</a>';
 						$products += '</h4>';
 						$products += '<div class="info-product-price">';
 						$products += '<span class="item_price">PKR '+data[i].ProductPrice+'</span>';
