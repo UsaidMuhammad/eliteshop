@@ -45,7 +45,7 @@
                 return \DB::table('women')->where("Status",1)->get();
               });
               ?>
-              @for ($i = 1; $i <=count($men); $i++)
+              @for ($i = 1; $i <=count($women); $i++)
               <li><a href="{{url('admin/women/'.$women[$i-1]->CategoryID.'/products/list')}}">{{$women[$i-1]->CategoryName}} Products</a></li>
               @endfor
             </ul>
