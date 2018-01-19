@@ -18,7 +18,8 @@ Route::middleware(['DoesUserExsist'])->group(function () {
     Route::get('/disabled', 'BasicWebController@disabled');
     Route::get('/about', 'BasicWebController@about');
     Route::get('/contact', 'BasicWebController@contact');
-    Route::get('/item', 'BasicWebController@item');
+    Route::get('/item/{ProductID}/men', 'BasicWebController@menItem')->where(["ProductID"=>"[0-9]+"]);
+    Route::get('/item/{ProductID}/women', 'BasicWebController@womenItem')->where(["ProductID"=>"[0-9]+"]);
     //mens
     //Route::get('/mens', 'BasicWebController@mens');
     Route::get('/mens/{category}', 'BasicWebController@mensCategory');

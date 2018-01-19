@@ -41,13 +41,36 @@ class BasicWebController extends Controller
         return view("web.contact", $data);
     }
     
-    public function item()
+    public function menItem($ProductID)
     {
+        $product = App\MenProducts::where("ProductID",$ProductID)->get();
+        if (count($product)==0) {
+            return view("errors/404");
+        }
+
+        $data = [
+            'title' => [
+                0 => "one",
+                1 => "two"
+            ],
+            'product' => $product
+        ];
+        return view("web.single", $data);
+    }
+
+    public function womenItem($ProductID)
+    {
+        $product = App\WomenProducts::where("ProductID",$ProductID)->get();
+        if (count($product)==0) {
+            return view("errors/404");
+        }
+
         $data = [
             'title' => [
                 0 => "",
                 1 => ""
-            ]
+            ],
+            'product' => $product
         ];
         return view("web.single", $data);
     }
