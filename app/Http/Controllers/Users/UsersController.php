@@ -10,7 +10,7 @@ class UsersController extends Controller
 {
     public function index()
     {
-        return view("users/register");
+        return view("users.register");
     }
 
     public function register()
@@ -62,13 +62,13 @@ class UsersController extends Controller
             $user->DateModified = new \DateTime;
             $user->save();
 
-            return redirect("users/login");
+            return redirect("/users/login");
         }
     }
 
     public function logInGet()
     {
-        return view("users\login");
+        return view("users.login");
     }
     
     public function logInPost()
@@ -104,7 +104,7 @@ class UsersController extends Controller
             if (!$user)
             {
                 $data["data"] = "Incorrect Email or Password";
-                return view("users\login", $data);
+                return view("users.login", $data);
             } 
             else if (\Hash::check(\Request::get("password"), $user->Password))
             {
@@ -119,7 +119,7 @@ class UsersController extends Controller
             else
             {
                 $data["data"] = "Incorrect Email or Password";
-                return view("users\login", $data);
+                return view("users.login", $data);
             }
         }
     }
