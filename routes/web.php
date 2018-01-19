@@ -30,6 +30,8 @@ Route::middleware(['DoesUserExsist'])->group(function () {
     Route::get('/womens/{category}', 'BasicWebController@womensCategory');
 
     Route::middleware(['IsUserLoggedIn'])->group(function () {
+        //cart
+        Route::get('/cart',"BasicWebController@cartindex");
         //users dashboard
         Route::get('/users/orders',"Users\DashboardController@compOrders");
         Route::get('/users/pending',"Users\DashboardController@pendOrders");
