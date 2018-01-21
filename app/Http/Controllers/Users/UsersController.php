@@ -132,6 +132,7 @@ class UsersController extends Controller
         \Session::forget("Address");
         \Session::forget("Cell");
         \Session::forget("IsUserLoggedIn");
+        \Cart::destroy();
         return redirect("/");
     }
 }
