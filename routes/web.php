@@ -31,7 +31,9 @@ Route::middleware(['DoesUserExsist'])->group(function () {
 
     Route::middleware(['IsUserLoggedIn'])->group(function () {
         //cart
-        Route::get('/cart',"BasicWebController@cartindex");
+        Route::get('/cart',"Users\CartController@cartindex");
+        Route::post('/cart/add',"Users\CartController@cartadd");
+        Route::post('cart/update',"Users\CartController@cartupdate");
         //users dashboard
         Route::get('/users/orders',"Users\DashboardController@compOrders");
         Route::get('/users/pending',"Users\DashboardController@pendOrders");
