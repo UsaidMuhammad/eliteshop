@@ -50,10 +50,11 @@ class BasicWebController extends Controller
 
         $data = [
             'title' => [
-                0 => "one",
-                1 => "two"
+                0 => $product[0]->ProductName,
+                1 => ""
             ],
-            'product' => $product
+            'product' => $product,
+            '_type' => 'men'
         ];
         return view("web.single", $data);
     }
@@ -67,10 +68,11 @@ class BasicWebController extends Controller
 
         $data = [
             'title' => [
-                0 => "",
+                0 => $product[0]->ProductName,
                 1 => ""
             ],
-            'product' => $product
+            'product' => $product,
+            '_type' => 'women'
         ];
         return view("web.single", $data);
     }
@@ -176,10 +178,5 @@ class BasicWebController extends Controller
         $products = App\WomenProducts::where('CategoryID',$women[0]->CategoryID)->where('Status',1)->get();
     
         return response()->json($products, 200);
-    }
-
-    public function cartindex()
-    {
-        return view('web.cart');
     }
 }
