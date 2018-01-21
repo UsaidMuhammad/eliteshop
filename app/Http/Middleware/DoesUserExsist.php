@@ -36,5 +36,6 @@ class DoesUserExsist
             \Session::forget("Address");
             \Session::forget("Cell");
             \Session::forget("IsUserLoggedIn");
+            \Cart::destroy();
         }
 }
