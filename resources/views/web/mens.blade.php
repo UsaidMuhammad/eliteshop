@@ -218,14 +218,6 @@
 						$products += '<div class="info-product-price">';
 						$products += '<span class="item_price">PKR '+data[i].ProductPrice+'</span>';
 						$products += '</div>';
-						$products +=
-							'<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">';
-						$products += '<form action="#" method="post">';
-						$products += '<fieldset>';
-						$products += '<input type="submit" name="submit" value="Add to cart" class="button" />';
-						$products += '</fieldset>';
-						$products += '</form>';
-						$products += '</div>';
 						$products += '</div>';
 						$products += '</div>';
 						$products += '</div>';
