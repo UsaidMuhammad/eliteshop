@@ -59,17 +59,16 @@
 				<div class="color-quality">
 					<div class="color-quality-right">
 						<h5>Quantity :</h5>
-						<form action="#" method="post">
-						{{Form::number('Quantity',1)}}
+						{{Form::open(['url'=>'cart/add'])}}
+						{{Form::selectRange('quantity', 1, 10)}}
 					</div>
 				</div>
 				<div class="occasion-cart">
 					<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
-						
-							<fieldset>
-								<input type="hidden" name="cancel_return" value=" ">
+								{{Form::hidden("_id",$product[0]->ProductID)}}
+								{{Form::hidden("_type",$_type)}}
+								{{Form::hidden('_image',$product[0]->ProductImage)}}
 								<input type="submit" name="submit" value="Add to cart" class="button">
-							</fieldset>
 						</form>
 					</div>
 
