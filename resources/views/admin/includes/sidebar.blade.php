@@ -51,32 +51,19 @@
             </ul>
           </li> 
 
-        <!--
-        <li class="treeview">
-            <a href="#">
-              <i class="fa fa-dashboard"></i> <span>Men Categories</span>
-              <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right"></i>
-              </span>
-            </a>
-            <ul class="treeview-menu">
-              <li><a href="{{url('admin/men/category/list')}}">List Category</a></li>
-              <li><a href="{{url('admin/men/category/add')}}">Add Category</a></li>
-            </ul>
-          </li>
-  
           <li class="treeview">
               <a href="#">
-                <i class="fa fa-dashboard"></i> <span>Women Categories</span>
+                <i class="fa fa-address-book"></i> <span>Orders</span>
                 <span class="pull-right-container">
                   <i class="fa fa-angle-left pull-right"></i>
                 </span>
               </a>
               <ul class="treeview-menu">
-                <li><a href="{{url('admin/women/category/list')}}">List Category</a></li>
-                <li><a href="{{url('admin/women/category/add')}}">Add Category</a></li>
+                <li><a href="{{url('admin/orders/pending')}}">Pending Orders</a></li>
+                <li><a href="{{url('admin/orders/completed')}}">Completed Orders</a></li>
               </ul>
-            </li>-->
+            </li> 
+
       </ul>
     
 
