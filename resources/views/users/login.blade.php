@@ -50,7 +50,6 @@
 				<label>Password</label>
 				<span></span>
 			</div>
-			{{Form::checkbox('remember_me', '1')}}
 			<input type="submit" value="Sign Up">
 		</form>
 		
