@@ -31,6 +31,7 @@ class CheckoutController extends Controller
             $Products[] = [
                 'id' => $key->id,
                 'qty' => $key->qty,
+                '_type' => $key->options->_type,
             ];
         }
 

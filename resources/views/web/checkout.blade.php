@@ -50,6 +50,7 @@
 					<h4 style="margin-top:20px">Quantity: {{$item->qty}}</h4>
 					{{Form::hidden('quantity[]', $item->qty)}}
 					{{Form::hidden("ProductID[]",$item->id)}}
+					{{Form::hidden("_type[]",$item->options->_type)}}
 					<h4 style="margin-top:20px">Cost: {{$item->subtotal}} PKR</h4>
 				</div>
 				<div class="col-md-2 text-center">
