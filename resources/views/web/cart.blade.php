@@ -37,6 +37,7 @@
 
 	<div class="modal-body modal-body-sub_agile">
 		<div class="col-md-10 col-lg-offset-1 modal_body_left modal_body_left1" style="margin-top:60px">
+			<h1 class="text-center">Carts</h1>
 			<?php $amount = 0;?>
 			@if (count($cart)>0)
 			@foreach ($cart as $item)
