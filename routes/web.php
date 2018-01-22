@@ -35,7 +35,8 @@ Route::middleware(['DoesUserExsist'])->group(function () {
         Route::post('/cart/add',"Users\CartController@cartadd");
         Route::post('cart/update',"Users\CartController@cartupdate");
         //checkout
-        Route::get('/checkout',"Users\CheckoutController@checkoutindex");
+        Route::post('checkout',"Users\CheckoutController@checkoutPost");
+        Route::get('checkout',"Users\CheckoutController@checkoutindex");
         //users dashboard
         Route::get('/users/orders',"Users\DashboardController@compOrders");
         Route::get('/users/pending',"Users\DashboardController@pendOrders");
