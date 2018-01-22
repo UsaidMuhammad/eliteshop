@@ -118,6 +118,12 @@ Route::middleware(['IsAdminLoggedIn'])->group(function () {
         Route::post("admin/women/{CategoryID}/products/delete","Admin\WomenProducts@delete")->where(['CategoryID'=>"[0-9]+"]);
     });
 
+    //Orders
+    Route::get("admin/orders/pending","Admin\OrderController@indexpending");
+    Route::get("admin/orders/completed","Admin\OrderController@indexcompleted");
+    Route::get("admin/orders/edit/{OrderID}","Admin\OrderController@edit")->where(['OrderID'=>'[0-9]+']);
+    Route::post("admin/orders/edit/{OrderID}","Admin\OrderController@update")->where(['OrderID'=>'[0-9]+']);
+
 });
 
 
