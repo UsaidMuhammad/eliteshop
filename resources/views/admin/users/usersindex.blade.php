@@ -79,7 +79,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                @if(count('users')>0)
+                @if(count($users)>0)
                   @foreach($users as $item)
                       <tr>
                         <td><input type="checkbox" name="IDs[]" value="{{ $item->UserID }}" class="lowercheckbox"></td>
