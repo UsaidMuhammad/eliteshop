@@ -37,6 +37,7 @@
 
 	<div class="modal-body modal-body-sub_agile">
 		<div class="col-md-10 col-lg-offset-1 modal_body_left modal_body_left1" style="margin-top:60px">
+			<?php $amount = 0;?>
 			@if (count($cart)>0)
 			@foreach ($cart as $item)
 			{{Form::open(['url'=>'cart/update'])}}
@@ -49,7 +50,7 @@
 					<h4 style="margin-top:20px">Quantity {{Form::selectRange('quantity', 1, 10,["selected"=>$item->qty])}}</h4>
 					{{Form::hidden("rowId",$item->rowId)}}
 					{{Form::hidden("ProductID",$item->id)}}
-					<h4 style="margin-top:20px">Total Cost: {{$item->subtotal}}</h4>
+					<h4 style="margin-top:20px">Cost: {{$item->subtotal}} PKR</h4>
 				</div>
 				<div class="col-md-2 text-center">
 					<input type="submit" name="Update" value="Update" style="width:100%;margin-top:20px">
@@ -57,10 +58,13 @@
 					{{Form::close()}}
 				</div>
 			</div>
+			<?php $amount += $item->subtotal?>
 			@endforeach
 
 			<div class="pull-right" style="margin-top:20px">
-				<a href="#" class="btn btn-primary">Checkout</a>
+				<h4 style="margin-top:20px; padding:20px; ">Total Cost: {{$amount}} PKR</h4>
+				<a href="#"><input type="submit" name="CheckOut" value="Check Out" style="width:100%;margin-top:20px"></a>
+					
 			</div>
 			@else
 				<h2 class="text-center">Your Cart is Empty!</h2>
