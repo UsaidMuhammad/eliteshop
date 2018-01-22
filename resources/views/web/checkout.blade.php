@@ -37,38 +37,56 @@
 
 	<div class="modal-body modal-body-sub_agile">
 		<div class="col-md-10 col-lg-offset-1 modal_body_left modal_body_left1" style="margin-top:60px">
-			<h2 class="text-center">CheckOut</h2>
+			<h1 class="text-center">Checkout</h1>
 			<?php $amount = 0;?>
 			@if (count($cart)>0)
 			@foreach ($cart as $item)
-			{{Form::open(['url'=>'cart/update'])}}
 			<div class="row" style="margin-top:20px">
 				<div class="col-md-2">
 					<img src="{{url('assets/uploads/products_thumb/'.$item->options->Image)}}" width="150">
 				</div>
 				<div class="col-md-6">
 					<h3 style="margin-top:20px">{{$item->name}}</h3>
-					<h4 style="margin-top:20px">Quantity {{Form::selectRange('quantity', 1, 10,["selected"=>$item->qty])}}</h4>
-					{{Form::hidden("rowId",$item->rowId)}}
-					{{Form::hidden("ProductID",$item->id)}}
+					<h4 style="margin-top:20px">Quantity: {{$item->qty}}</h4>
+					{{Form::hidden('quantity[]', $item->qty)}}
+					{{Form::hidden("ProductID[]",$item->id)}}
 					<h4 style="margin-top:20px">Cost: {{$item->subtotal}} PKR</h4>
 				</div>
 				<div class="col-md-2 text-center">
-					<input type="submit" name="Update" value="Update" style="width:100%;margin-top:20px">
-					<input type="submit" name="Delete" value="Delete" style="width:100%;margin-top:20px">
-					{{Form::close()}}
+					<div class="clearfix"></div>
 				</div>
 			</div>
 			<?php $amount += $item->subtotal?>
 			@endforeach
-
-			<div class="pull-right" style="margin-top:20px">
-				<h4 style="margin-top:20px; padding:20px; ">Total Cost: {{$amount}} PKR</h4>
-				<a href="/checkout"><input type="submit" name="CheckOut" value="Check Out" style="width:100%;margin-top:20px"></a>
-					
+			<div style="margin-top:20px">
+					<h1>Shipping Details</h1>
+					{{Form::open(['url'=>'checkout'])}}
+					<div style="margin-top:50px;">
+						<label>Name</label>
+						<input type="text" name="name" required="" value="{{$user['Name']}}" disabled>
+						<span></span>
+					</div>
+					<div style="margin-top:50px;">
+						<label>Email</label>	
+						<input type="email" name="email" required="" value="{{$user['Email']}}" disabled>
+						<span></span>
+					</div>
+					<div class="styled-input" style="margin-top:50px;">
+						<input type="text" name="address" required="" value="{{$user['Address']}}">
+						<label>Address</label>
+						<span></span>
+					</div>
+					<div style="margin-top:50px;">
+						<label>Cell</label>
+						<input type="text" name="cell" required="" value="{{$user['Cell']}}" disabled>
+						<span></span>
+					</div>
+					<h4 style="margin-top:20px; padding:20px;" class="text-center">Total Cost: {{$amount}} PKR</h4>
+					<input type="submit" name="palceorder" value="Place Order" style="width:100%;margin-top:20px">
+					{{Form::close()}}
 			</div>
 			@else
-				<h2 class="text-center">Your Cart is Empty!</h2>
+				<h2 class="text-center">Your Cart is Empty so can't Check out!</h2>
 			@endif
 
 		</div>
