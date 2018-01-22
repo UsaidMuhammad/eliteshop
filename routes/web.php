@@ -34,6 +34,8 @@ Route::middleware(['DoesUserExsist'])->group(function () {
         Route::get('/cart',"Users\CartController@cartindex");
         Route::post('/cart/add',"Users\CartController@cartadd");
         Route::post('cart/update',"Users\CartController@cartupdate");
+        //checkout
+        Route::get('/checkout',"Users\CheckoutController@checkoutindex");
         //users dashboard
         Route::get('/users/orders',"Users\DashboardController@compOrders");
         Route::get('/users/pending',"Users\DashboardController@pendOrders");
@@ -51,8 +53,9 @@ Route::middleware(['IsUserAlreadyAvailable'])->group(function () {
     //users login
     Route::post("/users/login","Users\UsersController@logInPost");
     Route::get("/users/login","Users\UsersController@logInGet");
-    Route::get("/users/logout","Users\UsersController@logout");
 });
+
+Route::get("/users/logout","Users\UsersController@logout");
 
 Route::middleware(['IsAdminAlreadyAvailable'])->group(function () {
     //Admin Log in
