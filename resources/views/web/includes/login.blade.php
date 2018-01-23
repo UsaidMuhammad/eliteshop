@@ -22,11 +22,6 @@
 							<label>Password</label>
 							<span></span>
 						</div>
-						<div class="styled-input">
-							<input type="password" name="password" required="">
-							<label>Password</label>
-							<span></span>
-						</div>
 						<input type="submit" value="Sign In">
 					</form>
 					<div class="clearfix"></div>
