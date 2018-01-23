@@ -44,7 +44,7 @@ class CheckoutController extends Controller
 
         $order->save();
 
-        \Cart::destory();
+        \Cart::destroy();
 
         return redirect('users/pending');
     }
