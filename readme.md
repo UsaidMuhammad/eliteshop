@@ -17,6 +17,7 @@ run `vendor\\bin\\homestead make` inside the folder if you're on windows or `php
 Simply `vagrant up` and import the database from the backup included inside the .mysqlbackup folder.
 
 For the admin panel visit `eliteshop.test/admin`.
+Username and passwords are `admin`.
 
 ## License
 
