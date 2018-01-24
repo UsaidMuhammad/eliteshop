@@ -34,8 +34,6 @@
 		<h1 class="text-center">Pending Orders</h1>
 				
 		<div class="col-md-9">
-				
-		
 				@for ($i = 0; $i < count($item); $i++)
 				<h3 style="margin-top:20px">Status: 
 						@if ($item[$i]->Status==1)
@@ -71,7 +69,6 @@
 					<hr style="margin-top:120px;">
 				@endfor
 		</div>
-		
 	</div>
 </div>
 
