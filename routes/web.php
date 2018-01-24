@@ -40,7 +40,9 @@ Route::middleware(['DoesUserExsist'])->group(function () {
         //users dashboard
         Route::get('/users/orders',"Users\DashboardController@compOrders");
         Route::get('/users/pending',"Users\DashboardController@pendOrders");
+        Route::post('/users/info',"Users\DashboardController@infoupdate");
         Route::get('/users/info',"Users\DashboardController@info");
+        Route::post('/users/pass',"Users\DashboardController@passupdate");
         Route::get('/users/pass',"Users\DashboardController@pass");
     });
 });
