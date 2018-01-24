@@ -82,12 +82,101 @@ class DashboardController extends Controller
 
     public function info()
     {
-        return view("users.dashboard.userupdate"); 
+        $data['user'] = App\Users::find(\Session::get('UserID'));
+        return view("users.dashboard.userupdate",$data); 
+    }
+    public function infoupdate()
+    {       
+        $id = \Session::get('UserID');
+
+        $validationValues = [
+            "msg" => [
+                "required" => 'please enter :attribute',
+            ],
+            "valid" => [
+                "Name" => "required|max:50",
+                "Email" => "required|email|max:50",
+                "Address" => "required",
+                "Cell" => "required|max:20",
+            ],
+            "validName" => [
+                "Name" => "Name",
+                "Email" => "Email",
+                "Address" => "Address",
+                "Cell" => "Cell"
+            ]
+        ];
+
+        $v = \Validator::make(\Request::all(), $validationValues['valid'], $validationValues["msg"]);
+
+        $v->setAttributeNames($validationValues['validName']);
+
+        if ($v->fails()) {
+            return redirect()->back()->withErrors($v->errors())->withInput();
+        }
+        else
+        {
+            $user = App\Users::find($id);
+
+            $user->Name = \Request::get("Name");
+            $user->Email = \Request::get("Email");
+            $user->Address = \Request::get("Address");
+            $user->Cell = \Request::get("Cell");
+            $user->save();
+
+            return redirect()->back();
+        }
     }
 
     public function pass()
     {
         return view("users.dashboard.passwordupdate"); 
+    }
+
+    public function passupdate()
+    {       
+        $id = \Session::get('UserID');
+        $data = \Request::all();
+        $user = App\Users::find($id);
+    
+        $validationValues = [
+            "msg" => [
+                "required" => 'please enter :attribute',
+            ],
+            "valid" => [
+                "password" => "required|min:6",
+                "new_password" => "required|min:6",
+                "retype_password" => "required|min:6",
+            ],
+            "validName" => [
+                "password" => "Password",
+                "new_password" => "New Password",
+                "retype_password" => "Retype New Password",                
+            ]
+        ];
+
+        $v = \Validator::make($data, $validationValues['valid'], $validationValues["msg"]);
+
+        $v->setAttributeNames($validationValues['validName']);
+
+        if ($v->fails()) {
+            return redirect()->back()->withErrors($v->errors())->withInput();
+        }
+        else if (!\Hash::check($data['password'],$user->Password))
+        {  
+            return redirect()->back()->with("status", "Your current password is incorrect");
+        }
+        else if ($data['new_password'] != $data['retype_password'])
+        {  
+            return redirect()->back()->with("status", "Your new passwords do not match");
+        }
+        else
+        {
+            $user->Password = \Hash::make($data["password"]);
+            $user->save();
+
+            return redirect()->back()->with("status", "Your Password has been updated");
+        }
     }
 
 }
