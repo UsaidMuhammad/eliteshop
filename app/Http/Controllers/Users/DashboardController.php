@@ -21,14 +21,17 @@ class DashboardController extends Controller
         ])->get();
        
         $data['products'] = []; // will hold products data found via $data['array']
-        $data['array'] = []; // will hold arrays of my products data
+        $data['array'] = []; // will hold arrays serialized data from from the order table
 
         for ($i=0; $i < count($data['item']); $i++) { 
 
+            //create a new array each iteration
             $data['array'][] = unserialize($data['item'][$i]->ProductsArray);
             
+            //for the values inside $i'th array 
             foreach ($data['array'][$i] as $key ) {
             
+                // save the product data according the same sub array as $data['array']
                 if($key['_type']== 'men')
                 {
                     $data['products'][$i][] = App\MenProducts::where('ProductID',$key['id'])->first();
@@ -51,14 +54,17 @@ class DashboardController extends Controller
         ])->get();
        
         $data['products'] = []; // will hold products data found via $data['array']
-        $data['array'] = []; // will hold arrays of my products data
+        $data['array'] = []; // will hold arrays serialized data from from the order table
 
         for ($i=0; $i < count($data['item']); $i++) { 
 
+            //create a new array each iteration
             $data['array'][] = unserialize($data['item'][$i]->ProductsArray);
             
+            //for the values inside $i'th array 
             foreach ($data['array'][$i] as $key ) {
             
+                // save the product data according the same sub array as $data['array']
                 if($key['_type']== 'men')
                 {
                     $data['products'][$i][] = App\MenProducts::where('ProductID',$key['id'])->first();

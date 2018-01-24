@@ -34,6 +34,10 @@
 		<h1 class="text-center">Completed Orders</h1>
 				
 		<div class="col-md-9">
+			<!-- For each order that is present (where $item == Order), get the $array[$i]'th of that item,
+			ge the data of the $a'th of array from the $products and $array, while displaying the price * qty
+		
+			finally adding the subtotal to display the total in the end-->
 				@for ($i = 0; $i < count($item); $i++)
 				<h3 style="margin-top:20px">Status: 
 						Package Delivered
