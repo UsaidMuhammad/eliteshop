@@ -28,13 +28,37 @@
 
 <div class="modal-body modal-body-sub_agile">
 	<h3 class="wthree_text_info" style="margin-top:50px;">Welcome <span>{{\Session::get("Name")}}</span></h3>
-	@include("users.dashboard.includemenu")	
-
-	<div class="col-md-9">
+	<div class="row" style="margin-top:20px">
+		@include("users.dashboard.includemenu")	
 		
-	</div>
 		<h1 class="text-center">Completed Orders</h1>
-		<div class="clearfix"></div>
+				
+		<div class="col-md-9">
+				@for ($i = 0; $i < count($item); $i++)
+				<h3 style="margin-top:20px">Status: 
+						Package Delivered
+					</h3>
+					@for ($a = 0; $a < count($array[$i]); $a++)
+						<div class="row" style="margin-top:20px; background-color:#eeeeee">
+							<div class="col-md-10">
+								<h3 style="margin-top:20px">{{$products[$i][$a]->ProductName}}</h3>
+								<h4 style="margin-top:20px">Quantity: {{$array[$i][$a]['qty']}}</h4>
+								<h4 style="margin-top:20px">Total Price: {{$products[$i][$a]->ProductPrice * $array[$i][$a]['qty']}}</h4>
+							</div>
+							<div class="col-md-2">
+								<img src="{{url('assets/uploads/products_thumb/'.$products[$i][$a]->ProductImage)}}" alt="" srcset="" width="100%">
+							</div>
+						</div>
+						<?php $total = 0;$total += $products[$i][$a]->ProductPrice * $array[$i][$a]['qty']?>
+					@endfor
+					<div class="pull-left">
+						<h4 style="margin-top:20px;">Shipped Address: {{$item[$i]->Address}}</h4>
+						<h4 style="margin-top:20px;">Total Cost: {{$total}}</h4>
+					</div>
+					<hr style="margin-top:120px;">
+				@endfor
+		</div>
+	</div>
 </div>
 
 @include("web.includes.footer")
