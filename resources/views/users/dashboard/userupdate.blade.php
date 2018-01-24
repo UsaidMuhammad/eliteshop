@@ -32,18 +32,54 @@
 	@include("web.includes.header")
 
 	<!-- banner -->
-	@include("web.includes.menu") @include('web.includes.login')
+	@include("web.includes.menu") 
+	
+	@include('web.includes.login')
 
 	<div class="modal-body modal-body-sub_agile">
-		<h3 class="wthree_text_info" style="margin-top:50px;">Welcome
-			<span>{{\Session::get("Name")}}</span>
-		</h3>
-		@include("users.dashboard.includemenu")
-		<h1 class="text-center">Update Your Info</h1>
-		<div class="clearfix"></div>
+		<div class="row">
+			<h3 class="wthree_text_info" style="margin-top:50px;">Welcome
+				<span>{{\Session::get("Name")}}</span>
+			</h3>
+			@include("users.dashboard.includemenu")
+			<div class="col-md-9">
+				<h1 class="text-center">Update Your Info</h1>
+				<div class="clearfix"></div>
 
-		
+				{{Form::open(["url"=>"/users/info"])}} 
+				@if ($errors->any()) 
+					@foreach($errors->all() as $err)
+					{!! $err. "<br>" !!} 
+					@endforeach
+				 @endif 
 
+				 @if (session('status')) 
+				 {{session('status')}} 
+				 @endif
+				<div class="styled-input agile-styled-input-top" style="margin-top:50px;">
+						{{Form::text('Name',$user->Name)}}
+					<label>Name</label>
+					<span></span>
+				</div>
+				<div class="styled-input">
+					{{Form::text('Email',$user->Email)}}
+					<label>Email</label>
+					<span></span>
+				</div>
+				<div class="styled-input">
+						{{Form::text('Address',$user->Address)}}
+					<label>Address</label>
+					<span></span>
+				</div>
+				<div class="styled-input">
+						{{Form::text('Cell',$user->Cell)}}
+					<label>Cell</label>
+					<span></span>
+				</div>
+				<input type="submit" value="Update">
+				</form>
+			</div>
+		</div>
 	</div>
 
 	@include("web.includes.footer")
