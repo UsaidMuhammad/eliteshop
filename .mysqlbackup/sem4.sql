@@ -5,9 +5,6 @@ SET time_zone = '+00:00';
 SET foreign_key_checks = 0;
 SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
 
-CREATE DATABASE `sem4` /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci */;
-USE `sem4`;
-
 DROP TABLE IF EXISTS `admin`;
 CREATE TABLE `admin` (
   `AdminID` int(11) NOT NULL AUTO_INCREMENT,
@@ -239,29 +236,23 @@ INSERT INTO `men_products` (`ProductID`, `CategoryID`, `ProductName`, `ProductDe
 (511,	10,	'zCWdHhEvct',	'XfAvnkbwStoDWV21IUj3GScf15JzU2RE7AcOoFvEvfJQiyHQsdIr0opQdEFxNtf8eki98HilEsw5lmZ7kHs9bcDlI9RieMG3Fuod1txJt4AzbldUoZk0GZcR',	'placeholder.jpg',	5000,	1,	'2018-01-18 10:21:43',	'2018-01-18 10:21:43'),
 (512,	10,	'kTTIpvDymh',	'zpNwo8DxqGlVqzu4a0q1WRlBgRuEexq8YVvS5vrfdZNBDFea24lyCaB19IlHDZxILM1or3Vo1YpmyluWReFtkb9015PdAlXGDETeS2TVD75R4itUPXiqwJ7d',	'placeholder.jpg',	5000,	1,	'2018-01-18 10:21:43',	'2018-01-18 10:21:43');
 
+DROP TABLE IF EXISTS `order`;
+CREATE TABLE `order` (
+  `OrderID` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `UserID` int(10) unsigned NOT NULL,
+  `ProductsArray` text COLLATE utf8_unicode_ci NOT NULL,
+  `Address` text COLLATE utf8_unicode_ci NOT NULL,
+  `Status` tinyint(3) unsigned NOT NULL,
+  `DateAdded` datetime NOT NULL,
+  `DateModified` datetime NOT NULL,
+  PRIMARY KEY (`OrderID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+INSERT INTO `order` (`OrderID`, `UserID`, `ProductsArray`, `Address`, `Status`, `DateAdded`, `DateModified`) VALUES
+(4,	5,	'a:2:{i:0;a:3:{s:2:\"id\";i:4;s:3:\"qty\";s:1:\"7\";s:5:\"_type\";s:5:\"women\";}i:1;a:3:{s:2:\"id\";i:5;s:3:\"qty\";s:1:\"4\";s:5:\"_type\";s:5:\"women\";}}',	'Ali ali ali ali',	5,	'2018-01-22 12:24:04',	'2018-01-24 07:41:17'),
+(5,	5,	'a:1:{i:0;a:3:{s:2:\"id\";i:308;s:3:\"qty\";s:1:\"1\";s:5:\"_type\";s:3:\"men\";}}',	'something Else',	5,	'2018-01-23 08:34:11',	'2018-01-24 07:41:31');
+
 SET NAMES utf8mb4;
-
-DROP TABLE IF EXISTS `migrations`;
-CREATE TABLE `migrations` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `batch` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
-INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-(1,	'2018_01_19_113743_create_shoppingcart_table',	1);
-
-DROP TABLE IF EXISTS `shoppingcart`;
-CREATE TABLE `shoppingcart` (
-  `identifier` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `instance` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `content` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`identifier`,`instance`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
 
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
@@ -323,4 +314,4 @@ INSERT INTO `women_products` (`ProductID`, `CategoryID`, `ProductName`, `Product
 (5,	5,	'ccc',	'ccc',	'5_6LQjb.jpg',	3000,	1,	'2018-01-18 12:42:06',	'2018-01-18 12:42:06'),
 (6,	5,	'rayid',	'rayid',	'6_MBN0v.jpg',	500000,	0,	'2018-01-18 12:49:50',	'2018-01-18 12:50:02');
 
--- 2018-01-19 11:42:23
+-- 2018-01-24 08:03:17
