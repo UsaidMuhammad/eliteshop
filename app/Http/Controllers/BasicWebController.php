@@ -9,7 +9,8 @@ class BasicWebController extends Controller
 {
     public function home()
     {
-        return view("web.index");
+        $data['carousel'] = App\Carousel::get();
+        return view("web.index",$data);
     }
 
     public function disabled()
