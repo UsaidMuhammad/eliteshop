@@ -130,6 +130,7 @@ class BasicWebController extends Controller
 
     public function mensGetJSON($category)
     {
+        //check to see if the category name is enabled
         $men =  App\Men::where("CategoryName",$category)->where('Status',1)->get();
         if (count($men)==0) {
             return response()->json(array('msg'=> "Cannot process request"), 404);
@@ -171,6 +172,7 @@ class BasicWebController extends Controller
 
     public function womensGetJSON($category)
     {
+        //check to see if the category name is enabled
         $women =  App\Women::where("CategoryName",$category)->where('Status',1)->get();
         if (count($women)==0) {
             return response()->json(array('msg'=> "Cannot process request"), 404);
