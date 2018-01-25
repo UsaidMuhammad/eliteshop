@@ -2,6 +2,9 @@
 <html>
 <head>
 <title>Elite Shop</title>
+<?php
+$count =count($carousel);
+?>
 <!--/tags -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -12,6 +15,7 @@
 <!--//tags -->
 <link href="{{url('/assets/web')}}/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 <link href="{{url('/assets/web')}}/css/style.css" rel="stylesheet" type="text/css" media="all" />
+@include('web.includes.homepagecarousel')
 <link href="{{url('/assets/web')}}/css/font-awesome.css" rel="stylesheet"> 
 <link href="{{url('/assets/web')}}/css/easy-responsive-tabs.css" rel='stylesheet' type='text/css'/>
 <!-- //for bootstrap working -->
@@ -25,62 +29,40 @@
 @include("web.includes.menu")
 
 @include('web.includes.login')
-<!-- banner -->
-	<div id="myCarousel" class="carousel slide" data-ride="carousel">
+@if ($count>0)
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
 		<!-- Indicators -->
 		<ol class="carousel-indicators">
-			<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-			<li data-target="#myCarousel" data-slide-to="1" class=""></li>
-			<li data-target="#myCarousel" data-slide-to="2" class=""></li>
-			<li data-target="#myCarousel" data-slide-to="3" class=""></li>
-			<li data-target="#myCarousel" data-slide-to="4" class=""></li> 
+			@for ($i = 0; $i < $count; $i++)
+				@if ($i != 0)
+					<li data-target="#myCarousel" data-slide-to="{{$i}}" class=""></li>
+				@else
+					<li data-target="#myCarousel" data-slide-to="{{$i}}" class="active"></li>
+				@endif
+			@endfor
 		</ol>
 		<div class="carousel-inner" role="listbox">
-			<div class="item active"> 
-				<div class="container">
-					<div class="carousel-caption">
-						<h3>The Biggest <span>Sale</span></h3>
-						<p>Special for today</p>
-						<a class="hvr-outline-out button2" href="{{url('/assets/web')}}/mens.html">Shop Now </a>
+			@for ($i = 0; $i < $count; $i++)
+				@if ($i != 0)
+					<div class="item item{{$i+1}}"> 
+						<div class="container">
+							<div class="carousel-caption">
+								<h3><span>{{$carousel[$i]->Heading}}</span></h3>
+								<p>{{$carousel[$i]->Description}}</p>
+							</div>
+						</div>
 					</div>
-				</div>
-			</div>
-			<div class="item item2"> 
-				<div class="container">
-					<div class="carousel-caption">
-						<h3>Summer <span>Collection</span></h3>
-						<p>New Arrivals On Sale</p>
-						<a class="hvr-outline-out button2" href="{{url('/assets/web')}}/mens.html">Shop Now </a>
+				@else
+					<div class="item active"> 
+						<div class="container">
+							<div class="carousel-caption">
+								<h3>{{$carousel[$i]->Heading}}</h3>
+								<p>{{$carousel[$i]->Description}}</p>
+							</div>
+						</div>
 					</div>
-				</div>
-			</div>
-			<div class="item item3"> 
-				<div class="container">
-					<div class="carousel-caption">
-						<h3>The Biggest <span>Sale</span></h3>
-						<p>Special for today</p>
-						<a class="hvr-outline-out button2" href="{{url('/assets/web')}}/mens.html">Shop Now </a>
-					</div>
-				</div>
-			</div>
-			<div class="item item4"> 
-				<div class="container">
-					<div class="carousel-caption">
-						<h3>Summer <span>Collection</span></h3>
-						<p>New Arrivals On Sale</p>
-						<a class="hvr-outline-out button2" href="{{url('/assets/web')}}/mens.html">Shop Now </a>
-					</div>
-				</div>
-			</div>
-			<div class="item item5"> 
-				<div class="container">
-					<div class="carousel-caption">
-						<h3>The Biggest <span>Sale</span></h3>
-						<p>Special for today</p>
-						<a class="hvr-outline-out button2" href="{{url('/assets/web')}}/mens.html">Shop Now </a>
-					</div>
-				</div>
-			</div> 
+				@endif
+			@endfor 
 		</div>
 		<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
 			<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
@@ -93,6 +75,9 @@
 		<!-- The Modal -->
     </div> 
 	<!-- //banner -->
+@endif
+<!-- banner -->
+
     
 	<!-- schedule-bottom -->
 	<div class="schedule-bottom">
