@@ -25,7 +25,7 @@ class CartController extends Controller
             if(count($item)!=0)
             {
                 \Cart::instance('Shopping')->add($item[0]->ProductID, $item[0]->ProductName, \Request::get("quantity"), $item[0]->ProductPrice,['Image'=>\Request::get('_image'),'_type'=>$_type]);
-                return redirect('cart');
+                return redirect()->back()->with("status", "Added to Cart");
             }
             else
             {
@@ -36,7 +36,7 @@ class CartController extends Controller
             if(count($item)!=0)
             {
                 \Cart::instance('Shopping')->add($item[0]->ProductID, $item[0]->ProductName, \Request::get("quantity"), $item[0]->ProductPrice,['Image'=>\Request::get('_image'),'_type'=>$_type]);
-                return redirect('cart');
+                return redirect()->back()->with("status", "Added to Cart");
             }
             else
             {

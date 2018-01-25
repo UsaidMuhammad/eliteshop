@@ -64,13 +64,18 @@
 					</div>
 				</div>
 				<div class="occasion-cart">
+					@if (\Session::has('status'))
+						<h3 style="margin-top:10px">{{\Session::get('status')}}</h3>
+					@else
 					<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
-								{{Form::hidden("_id",$product[0]->ProductID)}}
-								{{Form::hidden("_type",$_type)}}
-								{{Form::hidden('_image',$product[0]->ProductImage)}}
-								<input type="submit" name="submit" value="Add to cart" class="button">
-						</form>
+							{{Form::hidden("_id",$product[0]->ProductID)}}
+							{{Form::hidden("_type",$_type)}}
+							{{Form::hidden('_image',$product[0]->ProductImage)}}
+							<input type="submit" name="submit" value="Add to cart" class="button">
+					</form>
 					</div>
+					@endif
+					
 
 				</div>
 			</div>
