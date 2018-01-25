@@ -36,7 +36,7 @@
 		<!-- header-bot -->
 		<div class="col-md-4 logo_agile" style="margin:auto;width:100%;">
 			<h1 class="text-center">
-				<a href="{{url('/')}}/">
+				<a href="{{url('/')}}">
 					<span>E</span>lite Shop
 					<i class="fa fa-shopping-bag top_logo_agile_bag" aria-hidden="true"></i>
 				</a>
