@@ -75,6 +75,14 @@ Route::middleware(['IsAdminLoggedIn'])->group(function () {
     //admin logout
     Route::get('admin/logout', 'Admin\SigninController@logout');
 
+    //carousel
+    Route::get("admin/carousel","Admin\CarouselController@index");
+    Route::get("admin/carousel/add","Admin\CarouselController@add");
+    Route::post("admin/carousel/add","Admin\CarouselController@create");
+    Route::get("admin/carousel/{CarouselID}/edit","Admin\CarouselController@edit")->where(['CarouselID'=>'[0-9]+']);
+    Route::post("admin/carousel/{CarouselID}/edit","Admin\CarouselController@update")->where(['CarouselID'=>'[0-9]+']);
+    Route::post("admin/carousel/delete","Admin\CarouselController@delete");
+
     // Users RUD
     Route::get("admin/users","Admin\UsersController@index");
     Route::get("admin/users/edit/{UserID}","Admin\UsersController@edit")->where(["UserID"=>"[0-9]+"]);
