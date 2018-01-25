@@ -48,7 +48,7 @@
 	<div class="footer_agile_inner_info_w3l">
 		<div class="col-md-3 footer-left">
 			<h2>
-				<a href="{{url('/assets/web')}}/index.html">
+				<a href="{{url('/)}}">
 					<span>E</span>lite Shop </a>
 			</h2>
 			<p>Lorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora.</p>
