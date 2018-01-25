@@ -1,4 +1,4 @@
--- Adminer 4.3.1 MySQL dump
+-- Adminer 4.5.0 MySQL dump
 
 SET NAMES utf8;
 SET time_zone = '+00:00';
@@ -22,6 +22,24 @@ CREATE TABLE `admin` (
 
 INSERT INTO `admin` (`AdminID`, `FirstName`, `LastName`, `Cell`, `Email`, `Username`, `Password`, `Status`, `DateAdded`, `DateModified`) VALUES
 (2,	'Usaid',	'Raees',	'03472568223',	'ss4_usaid@hotmail.com',	'admin',	'$2y$10$jfhNz5thEKdRcdN2HuQGOuNIvWV5nJcM57QNll1d/o7JFHyFmQR9G',	1,	'2017-12-20 13:20:17',	NULL);
+
+DROP TABLE IF EXISTS `carousel`;
+CREATE TABLE `carousel` (
+  `CarouselID` int(11) NOT NULL AUTO_INCREMENT,
+  `Heading` text COLLATE utf8_unicode_ci,
+  `Description` text COLLATE utf8_unicode_ci,
+  `Image` text COLLATE utf8_unicode_ci,
+  `Status` tinyint(1) NOT NULL,
+  `DateAdded` datetime NOT NULL,
+  `DateModified` datetime NOT NULL,
+  PRIMARY KEY (`CarouselID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+INSERT INTO `carousel` (`CarouselID`, `Heading`, `Description`, `Image`, `Status`, `DateAdded`, `DateModified`) VALUES
+(1,	'This is heading 1',	'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vel lacus posuere, luctus mi eu, vulputate lectus. Quisque condimentum tincidunt lacus ut cursus. ',	'1.jpg',	1,	'2018-01-25 14:21:12',	'2018-01-25 14:21:12'),
+(2,	'This is a heading',	'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vel lacus posuere, luctus mi eu, vulputate lectus. Quisque condimentum tincidunt lacus ut cursus. ',	'2.jpg',	1,	'2018-01-25 14:21:27',	'2018-01-25 14:21:27'),
+(3,	'This is heading',	'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vel lacus posuere, luctus mi eu, vulputate lectus. Quisque condimentum tincidunt lacus ut cursus. ',	'3.jpg',	1,	'2018-01-25 14:21:38',	'2018-01-25 14:21:38'),
+(4,	'This is a heading',	'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vel lacus posuere, luctus mi eu, vulputate lectus. Quisque condimentum tincidunt lacus ut cursus. ',	'4.jpg',	1,	'2018-01-25 14:21:51',	'2018-01-25 14:21:51');
 
 DROP TABLE IF EXISTS `men`;
 CREATE TABLE `men` (
@@ -270,7 +288,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`UserID`, `Name`, `Email`, `Password`, `Address`, `Cell`, `Status`, `DateAdded`, `DateModified`) VALUES
 (3,	'ahmad',	'ahmad@hotmail.com',	'$2y$10$O/t4FFhwuTFjo4gbypM2wuILQ39LmogISMQ6SspoGrliIQImibxzu',	'sdasdasdasdasdasd',	'03472568223',	0,	'2018-01-03 10:52:28',	'2018-01-10 09:31:30'),
-(5,	'ali',	'ali@hotmail.com',	'$2y$10$5myIU9C0k7/fYOzzpR2zg.8Sg7aDH6M8Lu/FznR4hkDCR4bAmVNaK',	'Ali ali ali ali',	'123456789',	1,	'2018-01-03 13:39:53',	'2018-01-10 09:31:48'),
+(5,	'ali',	'ali@hotmail.com',	'$2y$10$JqZr.weLIdnPuf/7ZmoZbusltFv2FXV1..LQp7fcdijIQbh0l202.',	'Ali ali ali ali',	'1111',	1,	'2018-01-03 13:39:53',	'2018-01-24 10:28:00'),
 (7,	'Usaid Raees',	'ss4_usaid@hotmail.com',	'$2y$10$jBtD9DRG7KOhDKpNspQdbep9u2n6XyibEZKOfVaqhuwYKR7W0gdSW',	'karachi pakistan',	'85692347',	1,	'2018-01-03 13:42:43',	NULL),
 (8,	'wali',	'wali@hotmail.com',	'$2y$10$MnAQI8mDEIwszh8/KcNM6uKX0jPEec3lLuAR6ZKrIIhueRjXmWKau',	'karachi',	'236574189',	1,	'2018-01-03 13:45:59',	NULL);
 
@@ -314,4 +332,4 @@ INSERT INTO `women_products` (`ProductID`, `CategoryID`, `ProductName`, `Product
 (5,	5,	'ccc',	'ccc',	'5_6LQjb.jpg',	3000,	1,	'2018-01-18 12:42:06',	'2018-01-18 12:42:06'),
 (6,	5,	'rayid',	'rayid',	'6_MBN0v.jpg',	500000,	0,	'2018-01-18 12:49:50',	'2018-01-18 12:50:02');
 
--- 2018-01-24 08:03:17
+-- 2018-01-25 10:28:37
