@@ -93,31 +93,7 @@
 		<!-- The Modal -->
     </div> 
 	<!-- //banner -->
-    <div class="banner_bottom_agile_info">
-	    <div class="container">
-            <div class="banner_bottom_agile_info_inner_w3ls">
-    	           <div class="col-md-6 wthree_banner_bottom_grid_three_left1 grid">
-						<figure class="effect-roxy">
-							<img src="{{url('/assets/web')}}/images/bottom1.jpg" alt=" " class="img-responsive" />
-							<figcaption>
-								<h3><span>F</span>all Ahead</h3>
-								<p>New Arrivals</p>
-							</figcaption>			
-						</figure>
-					</div>
-					 <div class="col-md-6 wthree_banner_bottom_grid_three_left1 grid">
-						<figure class="effect-roxy">
-							<img src="{{url('/assets/web')}}/images/bottom2.jpg" alt=" " class="img-responsive" />
-							<figcaption>
-								<h3><span>F</span>all Ahead</h3>
-								<p>New Arrivals</p>
-							</figcaption>			
-						</figure>
-					</div>
-					<div class="clearfix"></div>
-		    </div> 
-		 </div> 
-    </div>
+    
 	<!-- schedule-bottom -->
 	<div class="schedule-bottom">
 		<div class="col-md-6 agileinfo_schedule_bottom_left">
@@ -150,62 +126,8 @@
 	</div>
 <!-- //schedule-bottom -->
   <!-- banner-bootom-w3-agileits -->
-	<div class="banner-bootom-w3-agileits">
-	<div class="container">
-		<h3 class="wthree_text_info">What's <span>Trending</span></h3>
 	
-		<div class="col-md-5 bb-grids bb-left-agileits-w3layouts">
-			<a href="{{url('/assets/web')}}/womens.html">
-			   <div class="bb-left-agileits-w3layouts-inner grid">
-					<figure class="effect-roxy">
-							<img src="{{url('/assets/web')}}/images/bb1.jpg" alt=" " class="img-responsive" />
-							<figcaption>
-								<h3><span>S</span>ale </h3>
-								<p>Upto 55%</p>
-							</figcaption>			
-						</figure>
-			    </div>
-			</a>
-		</div>
-		<div class="col-md-7 bb-grids bb-middle-agileits-w3layouts">
-		      <a href="{{url('/assets/web')}}/mens.html">
-		       <div class="bb-middle-agileits-w3layouts grid">
-			           <figure class="effect-roxy">
-							<img src="{{url('/assets/web')}}/images/bottom3.jpg" alt=" " class="img-responsive" />
-							<figcaption>
-								<h3><span>S</span>ale </h3>
-								<p>Upto 55%</p>
-							</figcaption>			
-						</figure>
-		        </div>
-				</a>
-				<a href="{{url('/assets/web')}}/mens.html">
-		      <div class="bb-middle-agileits-w3layouts forth grid">
-						<figure class="effect-roxy">
-							<img src="{{url('/assets/web')}}/images/bottom4.jpg" alt=" " class="img-responsive">
-							<figcaption>
-								<h3><span>S</span>ale </h3>
-								<p>Upto 65%</p>
-							</figcaption>		
-						</figure>
-					</div>
-					</a>
-		<div class="clearfix"></div>
-	</div>
-	</div>
-    </div>
-<!--/grids-->
-      <div class="agile_last_double_sectionw3ls">
-            <div class="col-md-6 multi-gd-img multi-gd-text ">
-					<a href="{{url('/assets/web')}}/womens.html"><img src="{{url('/assets/web')}}/images/bot_1.jpg" alt=" "><h4>Flat <span>50%</span> offer</h4></a>
-					
-			</div>
-			 <div class="col-md-6 multi-gd-img multi-gd-text ">
-					<a href="{{url('/assets/web')}}/womens.html"><img src="{{url('/assets/web')}}/images/bot_2.jpg" alt=" "><h4>Flat <span>50%</span> offer</h4></a>
-			</div>
-			<div class="clearfix"></div>
-	   </div>							
-<!--/grids-->
+
 
 
 @include("web.includes.footer")
