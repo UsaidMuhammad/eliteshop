@@ -79,7 +79,7 @@
                 @if(count($orders)>0)
                   @foreach($orders as $item)
                       <tr>
-                        <td><input type="checkbox" name="IDs[]" value="{{ $item->UserID }}" class="lowercheckbox"></td>
+                        <td><input type="checkbox" name="IDs[]" value="{{ $item->OrderID }}" class="lowercheckbox"></td>
                         <td>{{ $item->OrderID }}</td>
                         <td>{{ $item->UserID }}</td>
                         <td>{{ $item->Status }}</td>
