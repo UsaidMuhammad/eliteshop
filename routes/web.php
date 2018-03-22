@@ -133,7 +133,7 @@ Route::middleware(['IsAdminLoggedIn'])->group(function () {
     Route::get("admin/orders/completed","Admin\OrderController@indexcompleted");
     Route::get("admin/orders/edit/{OrderID}","Admin\OrderController@edit")->where(['OrderID'=>'[0-9]+']);
     Route::post("admin/orders/edit/{OrderID}","Admin\OrderController@update")->where(['OrderID'=>'[0-9]+']);
-
+    Route::post("admin/orders/delete", "Admin\OrderController@delete");
 });
 
 
