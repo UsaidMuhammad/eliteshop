@@ -5,6 +5,9 @@ SET time_zone = '+00:00';
 SET foreign_key_checks = 0;
 SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
 
+CREATE DATABASE `sem4` /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci */;
+USE `sem4`;
+
 DROP TABLE IF EXISTS `admin`;
 CREATE TABLE `admin` (
   `AdminID` int(11) NOT NULL AUTO_INCREMENT,
@@ -56,7 +59,9 @@ INSERT INTO `men` (`CategoryID`, `CategoryName`, `Status`, `DateAdded`, `DateMod
 (7,	'Shirts',	1,	'2018-01-10 05:14:06',	'2018-01-19 09:27:17'),
 (8,	'Ties',	1,	'2018-01-10 05:14:08',	'2018-01-10 05:14:08'),
 (9,	'Shoes',	1,	'2018-01-10 05:14:15',	'2018-01-10 05:14:15'),
-(10,	'NeckTie',	1,	'2018-01-10 05:14:21',	'2018-01-10 09:29:36');
+(10,	'NeckTie',	1,	'2018-01-10 05:14:21',	'2018-01-10 09:29:36'),
+(11,	'test',	1,	'2018-02-01 05:41:03',	'2018-02-01 05:41:03'),
+(12,	'Belts',	1,	'2018-02-13 04:29:55',	'2018-02-13 04:29:55');
 
 DROP TABLE IF EXISTS `men_products`;
 CREATE TABLE `men_products` (
@@ -141,16 +146,6 @@ INSERT INTO `men_products` (`ProductID`, `CategoryID`, `ProductName`, `ProductDe
 (207,	5,	'g8f0gV37pU',	'7P5e58MYs874m3XUrkWoeuX0OTeknN6Hl5FJ9GpdnvJ1fG7EaScWZ2cK0ZkBvFPy2QsIV6WIaMI5OSYUPoANjbhsi2Jo2bewN7wh7KEfjlkBI7oTAvBWD6FR',	'placeholder.jpg',	5000,	1,	'2018-01-18 10:20:31',	'2018-01-18 10:20:31'),
 (208,	5,	'8hKYzVqlLZ',	'DlmDS8gOcVGbpNBh8QEVk5rR3KFP15hHIYe6aluqWxXvg4LtA6OFbKNHelXH6PVNb80FKy2xqo2XPiaoraTzbi0ULhUs3EzfW2zvZtilujc9wUVZVhAQiP0p',	'placeholder.jpg',	5000,	1,	'2018-01-18 10:20:31',	'2018-01-18 10:20:31'),
 (209,	5,	'AW1198i6cE',	'G73wCcmwF1oIBVkG73r0mPSJNJquMf5NIucvrSCBhrCYBwITekOlNAHRUdRL11NSq316HI8sczr04S5f09OA3WNEh4Fn5EmAszJbFJl6uuFjKy791lOvw42x',	'placeholder.jpg',	5000,	1,	'2018-01-18 10:20:31',	'2018-01-18 10:20:31'),
-(300,	7,	'AAA',	'hkbSpVzXPwncDPJ1zwgz3gF8wwzgw0lgriQdahAE5f9CjYbluseS2BGMyXNKYoooRNNcb8lsYrad5G0ao5qPmkzlHU3MBwQ2xu4g7OeSIkhY0ntMJwLwdPrw',	'placeholder.jpg',	5000,	1,	'2018-01-18 10:20:41',	'2018-01-18 11:43:26'),
-(301,	7,	'BBB',	'BCyZmdxlsChf822gtlksevqSQri2QonVEVH7xI08CKrNTtEB8hJ0O8NgSBxKfSvALVLcOjzlxMwtV74D1bjq7xWJff8tzrOjCivEQgWoZyunRx3OpvxN2i6T',	'placeholder.jpg',	2687,	1,	'2018-01-18 10:20:41',	'2018-01-18 11:43:31'),
-(302,	7,	'DDD',	'uyPnmSwLqyGgV3kZKWl2QypYDTLpPQfnMj0ofQa8KGmuWeDco2Ai1axQZ30Zn5wzIZCnM3fNReO6d9tpv0oTWZ160GUoCjIvYZ8V9YFtsAmwLOO2gF6LcHng',	'placeholder.jpg',	124,	1,	'2018-01-18 10:20:41',	'2018-01-18 11:43:35'),
-(303,	7,	'FFF',	'G6ozVSEJgPOsVWnV46QMhGfPIzNFK592B9jhSjVGxivggJ7vfVQoAKzl071HdWYReAEMQXdR1WA4mN9T6PXxgtf3GIGMlxBEehzxonQHszzJlDuetBgNwtmR',	'placeholder.jpg',	7536,	1,	'2018-01-18 10:20:41',	'2018-01-18 11:43:50'),
-(304,	7,	'JJJJ',	'8TTFeVMJW8uEwJrahXqBkabnuhmNTdtFdX10dD2Vg9BdNJTfCrlPEjbrk8mZOlDsP9wLOArXx7VKKL85clZdYDs6moPs75UJS6SxVTkQTeifjdHHNEHrCVgl',	'placeholder.jpg',	200,	1,	'2018-01-18 10:20:41',	'2018-01-18 11:44:02'),
-(305,	7,	'HHH',	'ogouCLHuuVnxAKr7UzKWHw82XQR7hHwK12CUqN3LF5DeBC84Z86tykTbB09AJiSQ2Dm7fo7iNI2FWim05ChClhOEveBRxm4wMcTxQiQx1otw6oSq8G65NzPy',	'placeholder.jpg',	250,	1,	'2018-01-18 10:20:41',	'2018-01-18 11:44:09'),
-(306,	7,	'III',	'D1prixUZasbES47m7hWXP7lOyZc1gyPEelnnu7AugTRzYUqOXniURJem2tHqppu2fnQKSf4RC2zI3XhkjH0sNIbJAIeWEIrunv3exF5vt91iScALWdcLQTGY',	'placeholder.jpg',	712,	1,	'2018-01-18 10:20:41',	'2018-01-18 11:44:18'),
-(307,	7,	'JAJAJ',	'I0q4Tp0HFotQ4kiLnrcCaOAODp1sktDUGbNRQ5JTY0X87AsC5DnfdYp5vIa0tloIknWx9eTfWu1xiLmQgFhvbYo2la34gejaCqwNi77G8mrInxDv21yTVQ2v',	'placeholder.jpg',	963,	1,	'2018-01-18 10:20:41',	'2018-01-18 11:44:27'),
-(308,	7,	'LLL',	'39L5rjR8vsIJ8Uab1BjoMQdBvgs4s5vetoYwkjg9ok3gNHQ3AIVBRXoqylr4fwY23ceYGvPoYilP08XOUc9idlh6xwzBIFBwr5QtvasoRzDcbpAx7cavzupU',	'placeholder.jpg',	7412,	1,	'2018-01-18 10:20:41',	'2018-01-18 11:44:42'),
-(309,	7,	'MMM',	'k1CPIT7Ff7vgtSRze7t312JhiUQP0xI8ZUo8PTmbQQWQmXFNCjlQpGXkScZb0VjhOTk80r2yf2YbSVJI9OIMDQZgaGmFpkWbNEudThOOi8XwrAW0C9nYIZNU',	'placeholder.jpg',	1200,	1,	'2018-01-18 10:20:41',	'2018-01-18 11:45:06'),
 (361,	9,	'MXSbhS8IFH',	'3NEs9axx4P1yOydicIbEPcu09VPNXWC0SIpkuWZq8souDYqAd1yGVONuiVRDlyqepITIftWv32rAfWRy4ZoIfmdkDjYzgZKF9JtorgZeMEU5Ss9dNUJzxIxH',	'placeholder.jpg',	5000,	1,	'2018-01-18 10:21:32',	'2018-01-18 10:21:32'),
 (362,	9,	'jIq1kqixQE',	'yhf9B4Br1FRdmGlnBWPR6vtPhvKsKtk5QB2vqXKbJwpISPklTuxuaboWxGrqD31fJxijBkc7p01KUOPLs1oOqnQWi4ygeOWdMslhhfHiSHG7kAl0BdsXjPrP',	'placeholder.jpg',	5000,	1,	'2018-01-18 10:21:32',	'2018-01-18 10:21:32'),
 (363,	9,	'eqGRkRFsbU',	'Tf2GW43EBwu7a21ddb0whwVyzvAlJPGioKPG0cWF7E2vE3r9PSMuS3c4j45v6KWSQXhmxJ6puqWY3UV7Xxv1SjQkSEE23XRghnah0yDawMPEzVcVn2Uthhfo',	'placeholder.jpg',	5000,	1,	'2018-01-18 10:21:32',	'2018-01-18 10:21:32'),
@@ -252,7 +247,14 @@ INSERT INTO `men_products` (`ProductID`, `CategoryID`, `ProductName`, `ProductDe
 (509,	10,	'4FAnkQHgEH',	'pbqfNtlXUx2meoJjUMWca7SHTkUfedlqSCfXGaTY15YRwuRZjAwHkMKst8zAgwDZsmpWShTHRlnlVp1mtPGdHsxyLkSZ6i6cuTVOJG6HVEVOh4K1bPFy7g4p',	'placeholder.jpg',	5000,	1,	'2018-01-18 10:21:43',	'2018-01-18 10:21:43'),
 (510,	10,	'GDj6hgfE39',	'vb1DQqDMDZxyYNUlBZbjncYfWIXMtrZD4ym23VGrcaEsW9ZDRBVwTAJUfzp0gcDC0GpZ08kjgBwnRXXFBvvqwvaA57ziJKHLkqMeUgtvQRdIGpeEm3qXWW6x',	'placeholder.jpg',	5000,	1,	'2018-01-18 10:21:43',	'2018-01-18 10:21:43'),
 (511,	10,	'zCWdHhEvct',	'XfAvnkbwStoDWV21IUj3GScf15JzU2RE7AcOoFvEvfJQiyHQsdIr0opQdEFxNtf8eki98HilEsw5lmZ7kHs9bcDlI9RieMG3Fuod1txJt4AzbldUoZk0GZcR',	'placeholder.jpg',	5000,	1,	'2018-01-18 10:21:43',	'2018-01-18 10:21:43'),
-(512,	10,	'kTTIpvDymh',	'zpNwo8DxqGlVqzu4a0q1WRlBgRuEexq8YVvS5vrfdZNBDFea24lyCaB19IlHDZxILM1or3Vo1YpmyluWReFtkb9015PdAlXGDETeS2TVD75R4itUPXiqwJ7d',	'placeholder.jpg',	5000,	1,	'2018-01-18 10:21:43',	'2018-01-18 10:21:43');
+(512,	10,	'kTTIpvDymh',	'zpNwo8DxqGlVqzu4a0q1WRlBgRuEexq8YVvS5vrfdZNBDFea24lyCaB19IlHDZxILM1or3Vo1YpmyluWReFtkb9015PdAlXGDETeS2TVD75R4itUPXiqwJ7d',	'placeholder.jpg',	5000,	1,	'2018-01-18 10:21:43',	'2018-01-18 10:21:43'),
+(513,	11,	'yggvghgv',	'YGYVYGV',	'513_ffeWZ.png',	85852852,	1,	'2018-02-01 05:41:54',	'2018-02-01 05:41:54'),
+(514,	12,	'Belt 1',	'test description',	'514_mVu1i.jpg',	5000,	1,	'2018-02-13 04:30:39',	'2018-02-13 04:30:39'),
+(515,	7,	'Grey Checks Shirt - E024LD',	'This is a grey checked shirt made of the highest quality.',	'515_mmyR0.png',	25000,	1,	'2018-02-13 10:39:26',	'2018-02-13 10:39:26'),
+(516,	7,	'Purple Shirt - FG525H7',	'This is a purple shirt made from purple ink, imported from Africa.',	'516_vrUFd.jpg',	3000,	1,	'2018-02-13 10:46:12',	'2018-02-13 10:46:12'),
+(517,	7,	'Navy Blue Shirt - ZAD256L',	'A Navy blue shirt designed for Navy personale, it is the peak of navy craftmasnship.',	'517_YnKHE.jpg',	9000,	1,	'2018-02-13 10:49:06',	'2018-02-13 10:49:06'),
+(518,	7,	'Checked black shirt - 52HJ569',	'This quality product is a real-life manifestation of the highest quality of cotton.',	'518_xdfMj.jpg',	32000,	1,	'2018-02-13 11:00:48',	'2018-02-13 11:00:48'),
+(519,	7,	'Jeans Shirt - FRT586C1',	'A normal jeans shirt',	'519_MMBYj.jpg',	200,	1,	'2018-02-13 11:02:09',	'2018-02-13 11:02:09');
 
 DROP TABLE IF EXISTS `order`;
 CREATE TABLE `order` (
@@ -268,7 +270,9 @@ CREATE TABLE `order` (
 
 INSERT INTO `order` (`OrderID`, `UserID`, `ProductsArray`, `Address`, `Status`, `DateAdded`, `DateModified`) VALUES
 (4,	5,	'a:2:{i:0;a:3:{s:2:\"id\";i:4;s:3:\"qty\";s:1:\"7\";s:5:\"_type\";s:5:\"women\";}i:1;a:3:{s:2:\"id\";i:5;s:3:\"qty\";s:1:\"4\";s:5:\"_type\";s:5:\"women\";}}',	'Ali ali ali ali',	5,	'2018-01-22 12:24:04',	'2018-01-24 07:41:17'),
-(5,	5,	'a:1:{i:0;a:3:{s:2:\"id\";i:308;s:3:\"qty\";s:1:\"1\";s:5:\"_type\";s:3:\"men\";}}',	'something Else',	5,	'2018-01-23 08:34:11',	'2018-01-24 07:41:31');
+(5,	5,	'a:1:{i:0;a:3:{s:2:\"id\";i:308;s:3:\"qty\";s:1:\"1\";s:5:\"_type\";s:3:\"men\";}}',	'something Else',	5,	'2018-01-23 08:34:11',	'2018-01-24 07:41:31'),
+(6,	5,	'a:1:{i:0;a:3:{s:2:\"id\";i:3;s:3:\"qty\";s:1:\"6\";s:5:\"_type\";s:5:\"women\";}}',	'dsifiuhsdfudshfuydhfusdhf',	4,	'2018-02-01 05:38:28',	'2018-02-01 05:40:21'),
+(7,	9,	'a:2:{i:0;a:3:{s:2:\"id\";i:202;s:3:\"qty\";s:1:\"2\";s:5:\"_type\";s:3:\"men\";}i:1;a:3:{s:2:\"id\";i:83;s:3:\"qty\";s:1:\"1\";s:5:\"_type\";s:3:\"men\";}}',	'tariq road',	5,	'2018-02-13 04:26:42',	'2018-02-13 04:29:25');
 
 SET NAMES utf8mb4;
 
@@ -290,7 +294,8 @@ INSERT INTO `users` (`UserID`, `Name`, `Email`, `Password`, `Address`, `Cell`, `
 (3,	'ahmad',	'ahmad@hotmail.com',	'$2y$10$O/t4FFhwuTFjo4gbypM2wuILQ39LmogISMQ6SspoGrliIQImibxzu',	'sdasdasdasdasdasd',	'03472568223',	0,	'2018-01-03 10:52:28',	'2018-01-10 09:31:30'),
 (5,	'ali',	'ali@hotmail.com',	'$2y$10$JqZr.weLIdnPuf/7ZmoZbusltFv2FXV1..LQp7fcdijIQbh0l202.',	'Ali ali ali ali',	'1111',	1,	'2018-01-03 13:39:53',	'2018-01-24 10:28:00'),
 (7,	'Usaid Raees',	'ss4_usaid@hotmail.com',	'$2y$10$jBtD9DRG7KOhDKpNspQdbep9u2n6XyibEZKOfVaqhuwYKR7W0gdSW',	'karachi pakistan',	'85692347',	1,	'2018-01-03 13:42:43',	NULL),
-(8,	'wali',	'wali@hotmail.com',	'$2y$10$MnAQI8mDEIwszh8/KcNM6uKX0jPEec3lLuAR6ZKrIIhueRjXmWKau',	'karachi',	'236574189',	1,	'2018-01-03 13:45:59',	NULL);
+(8,	'wali',	'wali@hotmail.com',	'$2y$10$MnAQI8mDEIwszh8/KcNM6uKX0jPEec3lLuAR6ZKrIIhueRjXmWKau',	'karachi',	'236574189',	1,	'2018-01-03 13:45:59',	NULL),
+(9,	'Murtaza',	'murtaza@hotmail.com',	'$2y$10$EHhdAYhJ80GV3QEUF4ohquFob9Qi2SZwWT1nZngiPdNytV9JU.Es2',	'tariq road',	'021354687',	1,	'2018-02-13 04:20:10',	'2018-02-13 09:07:28');
 
 DROP TABLE IF EXISTS `women`;
 CREATE TABLE `women` (
@@ -332,4 +337,4 @@ INSERT INTO `women_products` (`ProductID`, `CategoryID`, `ProductName`, `Product
 (5,	5,	'ccc',	'ccc',	'5_6LQjb.jpg',	3000,	1,	'2018-01-18 12:42:06',	'2018-01-18 12:42:06'),
 (6,	5,	'rayid',	'rayid',	'6_MBN0v.jpg',	500000,	0,	'2018-01-18 12:49:50',	'2018-01-18 12:50:02');
 
--- 2018-01-25 10:28:37
+-- 2018-02-13 11:04:28
