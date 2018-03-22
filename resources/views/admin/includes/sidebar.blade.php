@@ -4,7 +4,7 @@
     <section class="sidebar">
       
       <ul class="sidebar-menu" data-widget="tree">
-        <li><a href="{{url('admin/dashbaord')}}"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
+        <li><a href="{{url('admin/dashboard')}}"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
         
         <li><a href="{{url('admin/carousel')}}"><i class="fa fa-image"></i> <span>Carousel</span></a></li>
 
