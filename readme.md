@@ -8,7 +8,7 @@ A simple e-commerce project made with laravel (PHP)
 
 You need composer, vagrant, homestead, refer to the official docs if you have now idea what im talking about.
 
-open a cmd window in the folder and run `composer install`.
+open a cmd window in the folder and run `composer install` and `composer update`.
 
 Setup your .env, use redis for cache and session for better preformance.
 
